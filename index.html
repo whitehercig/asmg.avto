@@ -3,1164 +3,591 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEDIBOXX — Нижнее бельё и пижамы | Алматы & Жаркент</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>ASMG.AUTO — Аренда спецтехники в Алматы</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bordeaux: #5C1A1A;
-    --bordeaux-dark: #3D0F0F;
-    --bordeaux-light: #8B2E2E;
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --cream: #FAF6F1;
-    --cream-dark: #F0E8DD;
-    --text-dark: #1A0A0A;
-    --text-mid: #4A2020;
-    --text-light: #8A6060;
-    --white: #FFFFFF;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 60px;
-    background: rgba(250, 246, 241, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-    transition: all 0.3s ease;
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 6px;
-    color: var(--bordeaux);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--gold); }
-
-  .nav-links {
-    display: flex; gap: 40px; list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--text-mid); text-decoration: none; font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--bordeaux); }
-
-  .nav-cta {
-    background: var(--bordeaux);
-    color: var(--white) !important;
-    padding: 10px 24px;
-    border-radius: 0;
-    letter-spacing: 2px;
-    font-size: 10px !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.3s !important;
-    font-weight: 500 !important;
-  }
-
-  .nav-cta:hover { background: var(--bordeaux-dark) !important; color: var(--white) !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 60px 80px 80px;
-    position: relative; z-index: 2;
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 30px;
-  }
-
-  .hero-badge::before {
-    content: ''; display: block;
-    width: 40px; height: 1px; background: var(--gold);
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 74px; line-height: 1.05;
-    color: var(--bordeaux-dark); font-weight: 300;
-    margin-bottom: 30px;
-  }
-
-  .hero-title em {
-    font-style: italic; color: var(--bordeaux-light);
-  }
-
-  .hero-desc {
-    font-size: 13px; line-height: 1.9; letter-spacing: 0.5px;
-    color: var(--text-light); max-width: 380px; margin-bottom: 50px;
-    font-weight: 300;
-  }
-
-  .hero-actions {
-    display: flex; align-items: center; gap: 30px;
-  }
-
-  .btn-primary {
-    background: var(--bordeaux);
-    color: var(--white);
-    padding: 16px 40px;
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    text-decoration: none; font-weight: 500;
-    transition: all 0.3s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--bordeaux-dark); transform: translateY(-2px); }
-
-  .btn-secondary {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--bordeaux); text-decoration: none; font-weight: 500;
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 2px;
-    transition: all 0.3s;
-  }
-
-  .btn-secondary:hover { color: var(--gold); }
-
-  .hero-right {
-    background: var(--bordeaux-dark);
-    position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .hero-right-bg {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 60%, rgba(139, 46, 46, 0.4) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.15) 0%, transparent 50%);
-  }
-
-  .hero-circle {
-    width: 380px; height: 380px; border-radius: 50%;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; z-index: 2;
-  }
-
-  .hero-circle-inner {
-    width: 300px; height: 300px; border-radius: 50%;
-    background: rgba(201, 168, 76, 0.08);
-    border: 1px solid rgba(201, 168, 76, 0.5);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column;
-  }
-
-  .hero-logo-big {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px; font-weight: 600; letter-spacing: 8px;
-    color: var(--gold-light);
-  }
-
-  .hero-logo-sub {
-    font-size: 8px; letter-spacing: 5px; text-transform: uppercase;
-    color: rgba(201, 168, 76, 0.6); margin-top: 8px;
-  }
-
-  .hero-stat {
-    position: absolute; z-index: 3;
-    background: rgba(250, 246, 241, 0.06);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 18px 24px; backdrop-filter: blur(8px);
-  }
-
-  .hero-stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px; font-weight: 600;
-    color: var(--gold-light); line-height: 1;
-  }
-
-  .hero-stat-label {
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(250, 246, 241, 0.5); margin-top: 4px;
-  }
-
-  .stat-1 { bottom: 100px; left: 40px; }
-  .stat-2 { top: 120px; right: 40px; }
-
-  /* MARQUEE */
-  .marquee-section {
-    background: var(--bordeaux);
-    padding: 18px 0;
-    overflow: hidden;
-  }
-
-  .marquee-track {
-    display: flex; gap: 60px;
-    animation: marquee 20s linear infinite;
-    white-space: nowrap;
-  }
-
-  .marquee-item {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(201, 168, 76, 0.7); flex-shrink: 0;
-  }
-
-  .marquee-dot {
-    color: var(--gold); font-size: 16px; line-height: 1;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* ABOUT */
-  .about {
-    padding: 120px 80px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 100px;
-    align-items: center;
-  }
-
-  .section-label {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 20px;
-    display: flex; align-items: center; gap: 14px;
-  }
-
-  .section-label::before {
-    content: ''; display: block;
-    width: 30px; height: 1px; background: var(--gold);
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px; line-height: 1.1; font-weight: 300;
-    color: var(--bordeaux-dark); margin-bottom: 24px;
-  }
-
-  .section-title em { font-style: italic; }
-
-  .section-text {
-    font-size: 13px; line-height: 1.9; color: var(--text-light);
-    font-weight: 300; letter-spacing: 0.3px; margin-bottom: 20px;
-  }
-
-  .about-features {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px;
-  }
-
-  .about-feature {
-    border-top: 1px solid var(--gold);
-    padding-top: 16px;
-  }
-
-  .about-feature-icon {
-    font-size: 20px; margin-bottom: 10px;
-  }
-
-  .about-feature-title {
-    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--bordeaux); font-weight: 600; margin-bottom: 6px;
-  }
-
-  .about-feature-text {
-    font-size: 12px; color: var(--text-light); line-height: 1.7;
-    font-weight: 300;
-  }
-
-  .about-visual {
-    position: relative;
-  }
-
-  .about-card-main {
-    background: var(--bordeaux-dark);
-    padding: 60px;
-    position: relative;
-    aspect-ratio: 3/4;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    overflow: hidden;
-  }
-
-  .about-card-pattern {
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(201, 168, 76, 0.03) 0px,
-      rgba(201, 168, 76, 0.03) 1px,
-      transparent 1px,
-      transparent 40px
-    );
-  }
-
-  .about-card-circle-decor {
-    position: absolute; top: -60px; right: -60px;
-    width: 280px; height: 280px; border-radius: 50%;
-    border: 1px solid rgba(201, 168, 76, 0.15);
-  }
-
-  .about-card-circle-decor2 {
-    position: absolute; top: -30px; right: -30px;
-    width: 180px; height: 180px; border-radius: 50%;
-    border: 1px solid rgba(201, 168, 76, 0.25);
-  }
-
-  .about-card-text {
-    position: relative; z-index: 2;
-  }
-
-  .about-card-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px; font-style: italic; font-weight: 300;
-    color: var(--cream); line-height: 1.3; margin-bottom: 20px;
-  }
-
-  .about-card-author {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500;
-  }
-
-  .about-badge {
-    position: absolute; top: -24px; right: -24px;
-    background: var(--gold);
-    width: 120px; height: 120px; border-radius: 50%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    z-index: 3;
-  }
-
-  .about-badge-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px; font-weight: 600;
-    color: var(--bordeaux-dark); line-height: 1;
-  }
-
-  .about-badge-text {
-    font-size: 8px; letter-spacing: 1px; text-transform: uppercase;
-    color: var(--bordeaux-dark); text-align: center;
-    font-weight: 600; margin-top: 2px;
-  }
-
-  /* CATEGORIES */
-  .categories {
-    padding: 100px 80px;
-    background: var(--bordeaux-dark);
-  }
-
-  .categories-header {
-    text-align: center; margin-bottom: 70px;
-  }
-
-  .categories-header .section-label {
-    justify-content: center;
-  }
-
-  .categories-header .section-label::before { display: none; }
-
-  .categories-header .section-title {
-    color: var(--cream); font-size: 56px;
-  }
-
-  .cat-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-  }
-
-  .cat-card {
-    position: relative; overflow: hidden;
-    aspect-ratio: 3/4;
-    cursor: pointer;
-    background: var(--bordeaux);
-  }
-
-  .cat-card-bg {
-    position: absolute; inset: 0;
-    transition: transform 0.6s ease;
-  }
-
-  .cat-card:hover .cat-card-bg { transform: scale(1.05); }
-
-  .cat-c1 .cat-card-bg { background: linear-gradient(160deg, #7A1E1E 0%, #3D0F0F 100%); }
-  .cat-c2 .cat-card-bg { background: linear-gradient(160deg, #8B2E2E 0%, #5C1A1A 100%); }
-  .cat-c3 .cat-card-bg { background: linear-gradient(160deg, #5C1A1A 0%, #2D0808 100%); }
-
-  .cat-pattern {
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      rgba(201, 168, 76, 0.04) 0px,
-      rgba(201, 168, 76, 0.04) 1px,
-      transparent 1px,
-      transparent 30px
-    );
-  }
-
-  .cat-icon-area {
-    position: absolute; top: 40%; left: 50%;
-    transform: translate(-50%, -60%);
-    text-align: center;
-  }
-
-  .cat-icon {
-    font-size: 56px; display: block; margin-bottom: 12px;
-    filter: saturate(0) brightness(1.5);
-    opacity: 0.35;
-    transition: opacity 0.3s;
-  }
-
-  .cat-card:hover .cat-icon { opacity: 0.5; }
-
-  .cat-content {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 40px 30px 36px;
-    background: linear-gradient(0deg, rgba(30, 5, 5, 0.95) 0%, transparent 100%);
-  }
-
-  .cat-label {
-    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 10px;
-  }
-
-  .cat-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px; font-weight: 400; color: var(--cream);
-    margin-bottom: 12px; line-height: 1.2;
-  }
-
-  .cat-desc {
-    font-size: 11px; color: rgba(250, 246, 241, 0.5);
-    line-height: 1.7; font-weight: 300; letter-spacing: 0.3px;
-  }
-
-  .cat-arrow {
-    position: absolute; top: 30px; right: 30px;
-    width: 40px; height: 40px;
-    border: 1px solid rgba(201, 168, 76, 0.4);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold); font-size: 16px;
-    transition: all 0.3s;
-    opacity: 0;
-  }
-
-  .cat-card:hover .cat-arrow {
-    opacity: 1; background: rgba(201, 168, 76, 0.1);
-  }
-
-  /* DELIVERY */
-  .delivery {
-    padding: 100px 80px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 100px;
-    align-items: center;
-  }
-
-  .delivery-map {
-    position: relative;
-    background: var(--bordeaux-dark);
-    aspect-ratio: 1;
-    overflow: hidden;
-  }
-
-  .map-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(201, 168, 76, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201, 168, 76, 0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  .map-dot {
-    position: absolute;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.15),
-                0 0 0 12px rgba(201, 168, 76, 0.07);
-  }
-
-  .map-dot::after {
-    content: ''; position: absolute; inset: -20px;
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    border-radius: 50%;
-    animation: pulse 2s ease-out infinite;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(0.5); opacity: 1; }
-    100% { transform: scale(2); opacity: 0; }
-  }
-
-  .map-city {
-    position: absolute;
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gold-light); font-weight: 500;
-    transform: translate(-50%, -200%);
-    white-space: nowrap;
-  }
-
-  .dot-almaty { top: 45%; left: 55%; }
-  .dot-zharkent { top: 38%; left: 70%; }
-
-  .map-label {
-    position: absolute; bottom: 30px; left: 30px;
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(201, 168, 76, 0.4);
-  }
-
-  .delivery-options {
-    display: grid; gap: 0;
-  }
-
-  .delivery-item {
-    padding: 28px 0;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
-    display: flex; gap: 24px; align-items: flex-start;
-    transition: all 0.3s;
-    cursor: default;
-  }
-
-  .delivery-item:hover { padding-left: 12px; }
-
-  .delivery-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 40px; font-weight: 300;
-    color: rgba(201, 168, 76, 0.25);
-    line-height: 1; min-width: 50px;
-    transition: color 0.3s;
-  }
-
-  .delivery-item:hover .delivery-num { color: var(--gold); }
-
-  .delivery-info { flex: 1; }
-
-  .delivery-title {
-    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--bordeaux-dark); font-weight: 600; margin-bottom: 6px;
-  }
-
-  .delivery-text {
-    font-size: 12px; color: var(--text-light); line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* WHATSAPP */
-  .whatsapp-section {
-    margin: 0 80px 100px;
-    background: var(--bordeaux);
-    padding: 80px;
-    display: grid; grid-template-columns: 1fr auto;
-    gap: 60px; align-items: center;
-    position: relative; overflow: hidden;
-  }
-
-  .wa-bg {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
-  }
-
-  .wa-content { position: relative; z-index: 2; }
-
-  .wa-label {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 20px;
-  }
-
-  .wa-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px; font-weight: 300; color: var(--cream);
-    line-height: 1.15; margin-bottom: 16px;
-  }
-
-  .wa-desc {
-    font-size: 13px; color: rgba(250, 246, 241, 0.55);
-    font-weight: 300; line-height: 1.8; max-width: 440px;
-  }
-
-  .wa-btn {
-    position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 16px;
-  }
-
-  .wa-link {
-    background: #25D366;
-    color: white; text-decoration: none;
-    padding: 18px 36px;
-    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-    font-weight: 600;
-    display: flex; align-items: center; gap: 12px;
-    transition: all 0.3s;
-    white-space: nowrap;
-  }
-
-  .wa-link:hover { background: #1ebe59; transform: translateY(-2px); }
-
-  .wa-link-icon { font-size: 20px; }
-
-  .wa-note {
-    font-size: 10px; color: rgba(250, 246, 241, 0.3);
-    letter-spacing: 1px; text-align: center;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials {
-    padding: 100px 80px;
-    background: var(--cream-dark);
-  }
-
-  .test-header {
-    text-align: center; margin-bottom: 70px;
-  }
-
-  .test-header .section-label {
-    justify-content: center;
-  }
-
-  .test-header .section-label::before { display: none; }
-
-  .test-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-  }
-
-  .test-card {
-    background: var(--white);
-    padding: 40px 36px;
-    position: relative;
-  }
-
-  .test-quote-mark {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 80px; color: var(--gold);
-    line-height: 0.7; margin-bottom: 24px;
-    opacity: 0.4;
-  }
-
-  .test-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; font-style: italic; font-weight: 400;
-    color: var(--bordeaux-dark); line-height: 1.6;
-    margin-bottom: 30px;
-  }
-
-  .test-author {
-    display: flex; align-items: center; gap: 14px;
-    border-top: 1px solid rgba(201, 168, 76, 0.2);
-    padding-top: 20px;
-  }
-
-  .test-avatar {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--bordeaux);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; font-weight: 600; color: var(--gold-light);
-    flex-shrink: 0;
-  }
-
-  .test-name {
-    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--bordeaux-dark);
-  }
-
-  .test-city {
-    font-size: 11px; color: var(--text-light); margin-top: 3px;
-  }
-
-  .test-stars {
-    margin-left: auto;
-    font-size: 13px; color: var(--gold); letter-spacing: 2px;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--bordeaux-dark);
-    padding: 80px 80px 40px;
-  }
-
-  .footer-top {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px; margin-bottom: 60px;
-  }
-
-  .footer-brand {}
-
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 600; letter-spacing: 6px;
-    color: var(--gold-light); margin-bottom: 16px;
-  }
-
-  .footer-tagline {
-    font-size: 12px; color: rgba(250, 246, 241, 0.4);
-    line-height: 1.8; font-weight: 300; max-width: 260px;
-  }
-
-  .footer-ig {
-    display: inline-flex; align-items: center; gap: 10px;
-    margin-top: 24px;
-    font-size: 11px; letter-spacing: 2px;
-    color: var(--gold); text-decoration: none;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    padding: 10px 18px;
-    transition: all 0.3s;
-  }
-
-  .footer-ig:hover {
-    background: rgba(201, 168, 76, 0.1);
-    border-color: var(--gold);
-  }
-
-  .footer-col-title {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 24px;
-  }
-
-  .footer-links { list-style: none; }
-
-  .footer-links li {
-    margin-bottom: 14px;
-  }
-
-  .footer-links a {
-    font-size: 13px; color: rgba(250, 246, 241, 0.45);
-    text-decoration: none; font-weight: 300;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover { color: var(--cream); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(201, 168, 76, 0.1);
-    padding-top: 30px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .footer-copy {
-    font-size: 11px; color: rgba(250, 246, 241, 0.25);
-    font-weight: 300; letter-spacing: 1px;
-  }
-
-  .footer-city {
-    font-size: 11px; color: rgba(201, 168, 76, 0.4);
-    letter-spacing: 2px; text-transform: uppercase;
-  }
-
-  /* ANIMATIONS */
-  .fade-in {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1; transform: translateY(0);
-  }
-
-  /* MOBILE NAV TOGGLE */
-  .nav-burger {
-    display: none;
-    flex-direction: column; gap: 5px; cursor: pointer;
-    background: none; border: none;
-  }
-
-  .nav-burger span {
-    width: 24px; height: 1.5px; background: var(--bordeaux); display: block;
-  }
-
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-    .nav-burger { display: flex; }
-
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-right { min-height: 50vh; }
-    .hero-left { padding: 60px 24px 40px; }
-    .hero-title { font-size: 48px; }
-
-    .about { grid-template-columns: 1fr; gap: 50px; padding: 60px 24px; }
-    .categories { padding: 60px 24px; }
-    .cat-grid { grid-template-columns: 1fr; }
-    .delivery { grid-template-columns: 1fr; padding: 60px 24px; }
-    .whatsapp-section { margin: 0 24px 60px; padding: 50px 30px; grid-template-columns: 1fr; }
-    .testimonials { padding: 60px 24px; }
-    .test-grid { grid-template-columns: 1fr; }
-    footer { padding: 60px 24px 30px; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-  }
+:root{--black:#0a0a0a;--dark:#111214;--card:#161819;--border:#2a2c2f;--orange:#FF6B00;--orange-light:#FF8C35;--yellow:#FFD000;--white:#F5F5F0;--gray:#7a7d82;--light:#c8cacf}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+/* ── SPLASH ── */
+#splash{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.splash-logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,12vw,120px);letter-spacing:6px;color:var(--white);opacity:0;transform:translateY(40px);animation:splashUp .7s .2s cubic-bezier(.22,1,.36,1) forwards}
+.splash-logo span{color:var(--orange)}
+.splash-sub{font-size:clamp(12px,2.5vw,16px);font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gray);opacity:0;transform:translateY(20px);animation:splashUp .6s .6s cubic-bezier(.22,1,.36,1) forwards;margin-top:8px}
+.splash-bar-wrap{width:clamp(160px,30vw,260px);height:2px;background:var(--border);border-radius:2px;margin-top:40px;overflow:hidden;opacity:0;animation:fadeIn .4s .9s ease forwards}
+.splash-bar{height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--yellow));animation:loadBar 1.1s 1s cubic-bezier(.4,0,.2,1) forwards}
+.splash-trucks{display:flex;gap:24px;margin-top:28px;opacity:0;animation:fadeIn .5s .8s ease forwards}
+.splash-trucks span{font-size:28px;animation:truckBounce 1.8s ease-in-out infinite}
+.splash-trucks span:nth-child(2){animation-delay:.2s}
+.splash-trucks span:nth-child(3){animation-delay:.4s}
+.splash-trucks span:nth-child(4){animation-delay:.6s}
+.splash-trucks span:nth-child(5){animation-delay:.8s}
+#splash.hide{animation:splashOut .6s .2s ease forwards}
+
+@keyframes splashUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes loadBar{to{width:100%}}
+@keyframes truckBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes splashOut{to{opacity:0;pointer-events:none}}
+
+/* ── HEADER ── */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--white);text-decoration:none}
+.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--light);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--orange)}
+.header-cta{background:var(--orange);color:#fff;font-weight:700;font-size:13px;letter-spacing:.5px;padding:10px 22px;border-radius:6px;text-decoration:none;transition:background .2s,transform .15s}
+.header-cta:hover{background:var(--orange-light);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,10,10,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:20px 24px 28px;z-index:99;flex-direction:column;gap:18px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--light);text-decoration:none;font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:16px}
+.mobile-nav a:last-child{border-bottom:none;padding-bottom:0}
+.mobile-nav a:hover{color:var(--orange)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 24px 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(255,107,0,.12) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(255,208,0,.05) 0%,transparent 60%),linear-gradient(160deg,#0d0d0d 0%,#0a0a0a 100%)}
+.hero-bg::after{content:'';position:absolute;top:-20%;right:-5%;width:55%;height:140%;background:linear-gradient(135deg,rgba(255,107,0,.06) 0%,transparent 60%);transform:skewX(-8deg)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,.12);border:1px solid rgba(255,107,0,.3);border-radius:100px;padding:6px 16px 6px 8px;font-size:12px;font-weight:600;color:var(--orange-light);letter-spacing:.5px;margin-bottom:24px;animation:fadeUp .6s ease both}
+.hero-badge .dot{width:8px;height:8px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,107,0,.5)}50%{box-shadow:0 0 0 6px rgba(255,107,0,0)}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,88px);line-height:.95;letter-spacing:2px;margin-bottom:24px;animation:fadeUp .7s .1s ease both}
+.hero h1 em{font-style:normal;color:var(--orange);display:block}
+.hero-sub{font-size:16px;color:var(--light);line-height:1.7;margin-bottom:40px;max-width:440px;animation:fadeUp .7s .2s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-weight:700;font-size:15px;padding:16px 32px;border-radius:8px;text-decoration:none;transition:all .2s;border:2px solid transparent}
+.btn-primary:hover{background:transparent;border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);font-weight:600;font-size:15px;padding:16px 28px;border-radius:8px;text-decoration:none;border:2px solid var(--border);transition:all .2s}
+.btn-secondary:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:44px;animation:fadeUp .7s .4s ease both}
+.stat-item{background:var(--card);padding:20px 16px;text-align:center}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--orange);letter-spacing:1px;display:block}
+.stat-label{font-size:11px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.hero-visual{position:relative;animation:fadeUp .8s .2s ease both}
+.truck-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;position:relative;overflow:hidden}
+.truck-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--yellow))}
+.truck-icon{font-size:80px;display:block;text-align:center;margin-bottom:16px}
+.avail-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:#4ade80;margin-bottom:12px}
+.avail-badge .dg{width:6px;height:6px;background:#4ade80;border-radius:50%}
+.truck-card h3{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.truck-card p{color:var(--gray);font-size:13px;line-height:1.6}
+.mini-features{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.mini-feat{background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.2);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;color:var(--orange-light)}
+.floating-card{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.floating-card.top-right{top:-18px;right:-18px;animation:float 4s ease-in-out infinite}
+.floating-card.bottom-left{bottom:-18px;left:-18px;animation:float 4s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fc-icon{font-size:24px}
+.fc-text{font-size:11px;color:var(--gray);font-weight:600;letter-spacing:.3px}
+.fc-val{font-size:14px;font-weight:700;color:var(--white)}
+
+/* ── SECTIONS ── */
+section{padding:90px 24px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';display:inline-block;width:24px;height:2px;background:var(--orange)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:2px;margin-bottom:16px}
+.section-title span{color:var(--orange)}
+.section-desc{color:var(--gray);font-size:15px;line-height:1.7;max-width:520px;margin-bottom:48px}
+
+/* ── SERVICES ── */
+#services{background:var(--dark)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:all .25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--yellow));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.service-card:hover{border-color:rgba(255,107,0,.4);transform:translateY(-4px);box-shadow:0 20px 40px rgba(255,107,0,.08)}
+.service-card:hover::after{transform:scaleX(1)}
+.sc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.service-emoji{font-size:42px;display:block}
+.sc-badge{background:rgba(255,107,0,.15);border:1px solid rgba(255,107,0,.3);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--orange-light);letter-spacing:.5px}
+.service-card h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;margin-bottom:10px;color:var(--white)}
+.service-card>p{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:18px;flex:1}
+.sc-specs{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;border-top:1px solid var(--border);padding-top:16px}
+.sc-specs li{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.spec-k{color:var(--gray)}
+.spec-v{color:var(--white);font-weight:600}
+.sc-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--border)}
+.service-price{font-weight:700;font-size:14px;color:var(--orange)}
+.sc-btn{background:var(--orange);color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;letter-spacing:.3px;transition:all .2s;white-space:nowrap}
+.sc-btn:hover{background:var(--orange-light);transform:translateY(-1px)}
+
+/* ── CONTACT BUTTONS SECTION ── */
+#reach{background:var(--black)}
+.reach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.reach-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;text-decoration:none;color:var(--white);transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:16px}
+.reach-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.4)}
+.reach-card.wa:hover{border-color:#25D366;box-shadow:0 24px 48px rgba(37,211,102,.12)}
+.reach-card.inst:hover{border-color:var(--orange);box-shadow:0 24px 48px rgba(255,107,0,.12)}
+.reach-card.phone:hover{border-color:#63b3ed;box-shadow:0 24px 48px rgba(99,179,237,.12)}
+.reach-icon{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px}
+.wa .reach-icon{background:rgba(37,211,102,.15)}
+.inst .reach-icon{background:rgba(255,107,0,.15)}
+.phone .reach-icon{background:rgba(99,179,237,.15)}
+.reach-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px}
+.reach-desc{font-size:13px;color:var(--gray);line-height:1.5}
+.reach-action{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:10px 24px;border-radius:8px;border:1px solid var(--border);transition:all .2s;color:var(--white)}
+.wa .reach-action{border-color:rgba(37,211,102,.4);color:#4ade80}
+.inst .reach-action{border-color:rgba(255,107,0,.4);color:var(--orange-light)}
+.phone .reach-action{border-color:rgba(99,179,237,.4);color:#63b3ed}
+.reach-card:hover .reach-action{transform:scale(1.03)}
+
+/* ── WHY ── */
+#why{background:var(--dark)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why-left{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.why-item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;transition:all .2s}
+.why-item:hover{border-color:rgba(255,107,0,.4);transform:translateY(-3px)}
+.why-item:first-child{grid-column:span 2;display:flex;align-items:center;gap:20px}
+.why-icon{font-size:32px;margin-bottom:12px;display:block}
+.why-item:first-child .why-icon{margin-bottom:0;font-size:40px}
+.why-item h4{font-weight:700;font-size:15px;margin-bottom:6px;color:var(--white)}
+.why-item p{font-size:12px;color:var(--gray);line-height:1.6}
+.why-right h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:1.5px;margin-bottom:20px}
+.why-right h2 span{color:var(--orange)}
+.why-right p{color:var(--gray);font-size:14px;line-height:1.8;margin-bottom:32px}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.why-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--light)}
+.why-list li::before{content:'✓';color:var(--orange);font-weight:700;font-size:16px;line-height:1.2;flex-shrink:0}
+
+/* ── HOW ── */
+#how{background:var(--black)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.steps-grid::before{content:'';position:absolute;top:36px;left:calc(12.5% + 36px);right:calc(12.5% + 36px);height:2px;background:linear-gradient(90deg,var(--orange),var(--yellow),var(--orange));z-index:0}
+.step-card{text-align:center;position:relative;z-index:1}
+.step-num{width:72px;height:72px;background:var(--card);border:2px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orange);transition:all .25s}
+.step-card:hover .step-num{background:var(--orange);color:#fff;transform:scale(1.1)}
+.step-card h4{font-weight:700;font-size:15px;margin-bottom:8px;color:var(--white)}
+.step-card p{font-size:12px;color:var(--gray);line-height:1.6}
+
+/* ── CTA ── */
+#cta{background:linear-gradient(135deg,var(--orange) 0%,#e05500 100%);padding:70px 24px;text-align:center;position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(255,255,255,.08) 0%,transparent 65%)}
+#cta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);letter-spacing:3px;color:#fff;margin-bottom:14px;position:relative}
+#cta p{color:rgba(255,255,255,.8);font-size:16px;margin-bottom:36px;position:relative}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-white{background:#fff;color:var(--orange);font-weight:700;font-size:15px;padding:16px 36px;border-radius:8px;text-decoration:none;transition:all .2s;border:2px solid #fff;display:inline-flex;align-items:center;gap:8px}
+.btn-white:hover{background:transparent;color:#fff;transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:#fff;font-weight:600;font-size:15px;padding:16px 32px;border-radius:8px;text-decoration:none;border:2px solid rgba(255,255,255,.5);transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:40px 24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--white);text-decoration:none}
+.footer-logo span{color:var(--orange)}
+.footer-copy{font-size:12px;color:var(--gray);text-align:center}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13px;color:var(--gray);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:28px;right:28px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(37,211,102,.4);text-decoration:none;z-index:200;transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .why-grid{grid-template-columns:1fr}
+  .why-left{order:2}
+  .why-right{order:1}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .steps-grid::before{display:none}
+  .reach-grid{grid-template-columns:1fr}
+  .nav-links,.header-cta{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  section{padding:60px 20px}
+  .hero{padding:90px 20px 50px}
+  .why-left{grid-template-columns:1fr}
+  .why-item:first-child{grid-column:span 1;flex-direction:column;align-items:flex-start}
+  .steps-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .reach-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">MEDI<span>BOXX</span></a>
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-trucks">
+    <span>🚛</span><span>🏗️</span><span>🔧</span><span>🏢</span><span>♻️</span>
+  </div>
+  <div class="splash-logo">ASMG<span>.</span>AUTO</div>
+  <div class="splash-sub">Аренда спецтехники · Алматы</div>
+  <div class="splash-bar-wrap"><div class="splash-bar"></div></div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">ASMG<span>.</span>AUTO</a>
   <ul class="nav-links">
-    <li><a href="#about">О нас</a></li>
-    <li><a href="#categories">Каталог</a></li>
-    <li><a href="#delivery">Доставка</a></li>
-    <li><a href="#contact">Контакты</a></li>
+    <li><a href="#services">Техника</a></li>
+    <li><a href="#reach">Контакты</a></li>
+    <li><a href="#why">О нас</a></li>
+    <li><a href="#how">Как работает</a></li>
   </ul>
-  <a href="https://wa.me/message/O7UFR4NY3BQEI1" target="_blank" class="nav-links nav-cta" style="list-style:none">Заказать</a>
-  <button class="nav-burger" aria-label="Menu">
+  <a href="https://wa.me/77075269446" class="header-cta" target="_blank">💬 WhatsApp</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeNav()">Техника</a>
+  <a href="#reach" onclick="closeNav()">Контакты</a>
+  <a href="#why" onclick="closeNav()">О нас</a>
+  <a href="#how" onclick="closeNav()">Как работает</a>
+  <a href="https://wa.me/77075269446" target="_blank">💬 Написать в WhatsApp</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-badge">Алматы & Жаркент</div>
-    <h1 class="hero-title">
-      Нижнее бельё<br>для <em>каждой</em><br>из вас
-    </h1>
-    <p class="hero-desc">
-      Изысканные коллекции нижнего белья и пижам. Доставка по всему Казахстану — потому что каждая женщина заслуживает чувствовать себя красивой.
-    </p>
-    <div class="hero-actions">
-      <a href="https://wa.me/message/O7UFR4NY3BQEI1" target="_blank" class="btn-primary">Перейти в каталог</a>
-      <a href="#about" class="btn-secondary">Узнать о нас</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-right-bg"></div>
-    <div class="hero-circle">
-      <div class="hero-circle-inner">
-        <div class="hero-logo-big">MEDI</div>
-        <div class="hero-logo-sub">Boutique</div>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Работаем в Алматы — подача от 1 часа
+      </div>
+      <h1>СПЕЦТЕХНИКА<br><em>БЕЗ</em>ОЖИДАНИЙ</h1>
+      <p class="hero-sub">Самосвалы, манипуляторы, автовышки, мусоровозы — весь парк спецтехники в одном месте. Доступные цены, быстрая подача, профессиональные водители.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/77075269446" class="btn-primary" target="_blank">💬 Написать в WhatsApp</a>
+        <a href="#services" class="btn-secondary">Посмотреть технику →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">1ч</span><span class="stat-label">Время подачи</span></div>
+        <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Работаем</span></div>
+        <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Видов техники</span></div>
       </div>
     </div>
-    <div class="hero-stat stat-1">
-      <div class="hero-stat-num">8 498</div>
-      <div class="hero-stat-label">Довольных клиентов</div>
-    </div>
-    <div class="hero-stat stat-2">
-      <div class="hero-stat-num">1 188</div>
-      <div class="hero-stat-label">Товаров в коллекции</div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-section" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">Нижнее бельё</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Пижамы</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Купальники</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Алматы</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Доставка по КЗ</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Жаркент</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Нижнее бельё</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Пижамы</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Купальники</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Алматы</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Доставка по КЗ</span>
-    <span class="marquee-dot">✦</span>
-    <span class="marquee-item">Жаркент</span>
-    <span class="marquee-dot">✦</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="fade-in">
-    <div class="section-label">Наша история</div>
-    <h2 class="section-title">Красота —<br>это <em>не роскошь</em></h2>
-    <p class="section-text">
-      MEDIBOXX — это больше, чем магазин нижнего белья. Это пространство, где каждая женщина находит то, что подчёркивает её индивидуальность и делает её увереннее.
-    </p>
-    <p class="section-text">
-      Мы тщательно отбираем каждую модель — от нежного кружева до комфортных пижам. Потому что вы заслуживаете только лучшего.
-    </p>
-    <div class="about-features">
-      <div class="about-feature">
-        <div class="about-feature-icon">🌹</div>
-        <div class="about-feature-title">Качество</div>
-        <div class="about-feature-text">Только проверенные материалы и бренды</div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">✨</div>
-        <div class="about-feature-title">Стиль</div>
-        <div class="about-feature-text">Актуальные коллекции каждого сезона</div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">💌</div>
-        <div class="about-feature-title">Сервис</div>
-        <div class="about-feature-text">Персональный подход к каждой клиентке</div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">🚚</div>
-        <div class="about-feature-title">Доставка</div>
-        <div class="about-feature-text">По всему Казахстану быстро и надёжно</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="about-visual fade-in">
-    <div class="about-card-main">
-      <div class="about-card-pattern"></div>
-      <div class="about-card-circle-decor"></div>
-      <div class="about-card-circle-decor2"></div>
-      <div class="about-card-text">
-        <div class="about-card-quote">"Нижнее бельё для каждой из вас"</div>
-        <div class="about-card-author">— MEDIBOXX, Алматы</div>
-      </div>
-    </div>
-    <div class="about-badge">
-      <div class="about-badge-num">★ 5</div>
-      <div class="about-badge-text">Топ<br>магазин</div>
-    </div>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="categories" id="categories">
-  <div class="categories-header fade-in">
-    <div class="section-label">Наши коллекции</div>
-    <h2 class="section-title">Для любого<br><em>настроения</em></h2>
-  </div>
-
-  <div class="cat-grid">
-    <div class="cat-card cat-c1 fade-in">
-      <div class="cat-card-bg"></div>
-      <div class="cat-pattern"></div>
-      <div class="cat-icon-area">
-        <span class="cat-icon">🌸</span>
-      </div>
-      <div class="cat-arrow">→</div>
-      <div class="cat-content">
-        <div class="cat-label">Коллекция</div>
-        <div class="cat-title">Нижнее бельё</div>
-        <div class="cat-desc">Кружево, атлас, хлопок — для каждого образа и каждого дня</div>
-      </div>
-    </div>
-
-    <div class="cat-card cat-c2 fade-in">
-      <div class="cat-card-bg"></div>
-      <div class="cat-pattern"></div>
-      <div class="cat-icon-area">
-        <span class="cat-icon">🌙</span>
-      </div>
-      <div class="cat-arrow">→</div>
-      <div class="cat-content">
-        <div class="cat-label">Коллекция</div>
-        <div class="cat-title">Пижамы</div>
-        <div class="cat-desc">Уютные комплекты для сна и домашнего отдыха</div>
-      </div>
-    </div>
-
-    <div class="cat-card cat-c3 fade-in">
-      <div class="cat-card-bg"></div>
-      <div class="cat-pattern"></div>
-      <div class="cat-icon-area">
-        <span class="cat-icon">☀️</span>
-      </div>
-      <div class="cat-arrow">→</div>
-      <div class="cat-content">
-        <div class="cat-label">Коллекция</div>
-        <div class="cat-title">Купальники</div>
-        <div class="cat-desc">Стильные модели для пляжа и бассейна</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERY -->
-<section class="delivery" id="delivery">
-  <div class="delivery-map fade-in">
-    <div class="map-grid"></div>
-    <div class="map-dot dot-almaty">
-      <div class="map-city">Алматы</div>
-    </div>
-    <div class="map-dot dot-zharkent">
-      <div class="map-city">Жаркент</div>
-    </div>
-    <div class="map-label">Казахстан ✦ KZ</div>
-  </div>
-
-  <div class="fade-in">
-    <div class="section-label">Доставка</div>
-    <h2 class="section-title">Получите ваш<br><em>заказ</em> быстро</h2>
-
-    <div class="delivery-options">
-      <div class="delivery-item">
-        <div class="delivery-num">01</div>
-        <div class="delivery-info">
-          <div class="delivery-title">Алматы — в день заказа</div>
-          <div class="delivery-text">Доставляем курьером по городу в удобное для вас время</div>
+    <div class="hero-visual">
+      <div class="truck-card">
+        <div class="floating-card top-right">
+          <span class="fc-icon">⚡</span>
+          <div><div class="fc-text">ПОДАЧА</div><div class="fc-val">от 1 часа</div></div>
         </div>
-      </div>
-      <div class="delivery-item">
-        <div class="delivery-num">02</div>
-        <div class="delivery-info">
-          <div class="delivery-title">Жаркент — доставка в городе</div>
-          <div class="delivery-text">Самовывоз и курьерская доставка по Жаркенту</div>
+        <div class="floating-card bottom-left">
+          <span class="fc-icon">💰</span>
+          <div><div class="fc-text">ЦЕНЫ</div><div class="fc-val">от 5 000 ₸/ч</div></div>
         </div>
-      </div>
-      <div class="delivery-item">
-        <div class="delivery-num">03</div>
-        <div class="delivery-info">
-          <div class="delivery-title">По всему Казахстану</div>
-          <div class="delivery-text">Отправляем через надёжные транспортные компании по всем городам КЗ</div>
-        </div>
-      </div>
-      <div class="delivery-item">
-        <div class="delivery-num">04</div>
-        <div class="delivery-info">
-          <div class="delivery-title">Упаковка с заботой</div>
-          <div class="delivery-text">Каждый заказ упакован бережно и красиво — как подарок</div>
+        <span class="truck-icon">🚛</span>
+        <div class="avail-badge"><span class="dg"></span>Доступно сейчас</div>
+        <h3>Парк спецтехники</h3>
+        <p>Самосвалы, манипуляторы, автовышки и многое другое в наличии в Алматы</p>
+        <div class="mini-features">
+          <span class="mini-feat">🏗️ Самосвал</span>
+          <span class="mini-feat">🔧 Манипулятор</span>
+          <span class="mini-feat">🏢 Автовышка</span>
+          <span class="mini-feat">♻️ Мусоровоз</span>
+          <span class="mini-feat">🚚 ЗИЛ</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHATSAPP CTA -->
-<div class="whatsapp-section" id="contact">
-  <div class="wa-bg"></div>
-  <div class="wa-content">
-    <div class="wa-label">Связаться с нами</div>
-    <h2 class="wa-title">Напишите нам<br>прямо сейчас</h2>
-    <p class="wa-desc">Поможем подобрать идеальный размер, расскажем о наличии и ответим на все вопросы. Отвечаем быстро!</p>
-  </div>
-  <div class="wa-btn">
-    <a href="https://wa.me/message/O7UFR4NY3BQEI1" target="_blank" class="wa-link">
-      <span class="wa-link-icon">💬</span>
-      Написать в WhatsApp
-    </a>
-    <div class="wa-note">Отвечаем в течение нескольких минут</div>
-  </div>
-</div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label">Наша техника</div>
+    <h2 class="section-title">ВЕСЬ ПАРК<br><span>СПЕЦТЕХНИКИ</span></h2>
+    <p class="section-desc">Любая задача — есть подходящая машина. Работаем с физлицами, стройкомпаниями и предприятиями.</p>
+    <div class="services-grid">
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="test-header fade-in">
-    <div class="section-label">Отзывы</div>
-    <h2 class="section-title" style="color: var(--bordeaux-dark)">Что говорят<br><em>наши клиентки</em></h2>
-  </div>
-
-  <div class="test-grid">
-    <div class="test-card fade-in">
-      <div class="test-quote-mark">"</div>
-      <p class="test-text">Заказывала пижаму — пришла быстро, качество супер! Ткань мягкая, швы аккуратные. Точно буду заказывать ещё.</p>
-      <div class="test-author">
-        <div class="test-avatar">А</div>
-        <div>
-          <div class="test-name">Айгерим</div>
-          <div class="test-city">Алматы</div>
+      <div class="service-card">
+        <div class="sc-top">
+          <span class="service-emoji">🏗️</span>
+          <div class="sc-badge">Популярно</div>
         </div>
-        <div class="test-stars">★★★★★</div>
+        <h3>Самосвал</h3>
+        <p>Вывоз грунта, строительного мусора, щебня, песка. Работаем на стройках, при сносе и ремонте зданий.</p>
+        <ul class="sc-specs">
+          <li><span class="spec-k">Грузоподъёмность</span><span class="spec-v">5–20 тонн</span></li>
+          <li><span class="spec-k">Объём кузова</span><span class="spec-v">до 15 м³</span></li>
+          <li><span class="spec-k">Подача</span><span class="spec-v">от 1 часа</span></li>
+          <li><span class="spec-k">Зона работы</span><span class="spec-v">Алматы и область</span></li>
+        </ul>
+        <div class="sc-footer">
+          <div class="service-price">от 8 000 ₸/час</div>
+          <a href="https://wa.me/77075269446?text=Здравствуйте!%20Нужен%20самосвал." class="sc-btn" target="_blank">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-top"><span class="service-emoji">🔧</span></div>
+        <h3>Манипулятор</h3>
+        <p>Погрузка и выгрузка тяжёлых грузов: контейнеры, оборудование, металлоконструкции, стройматериалы.</p>
+        <ul class="sc-specs">
+          <li><span class="spec-k">Грузоподъёмность</span><span class="spec-v">до 10 тонн</span></li>
+          <li><span class="spec-k">Вылет стрелы</span><span class="spec-v">до 12 метров</span></li>
+          <li><span class="spec-k">Грузовая платформа</span><span class="spec-v">есть</span></li>
+          <li><span class="spec-k">Подача</span><span class="spec-v">от 1 часа</span></li>
+        </ul>
+        <div class="sc-footer">
+          <div class="service-price">от 10 000 ₸/час</div>
+          <a href="https://wa.me/77075269446?text=Здравствуйте!%20Нужен%20манипулятор." class="sc-btn" target="_blank">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-top"><span class="service-emoji">🏢</span></div>
+        <h3>Автовышка</h3>
+        <p>Фасадные работы, монтаж рекламы, обслуживание зданий, покраска и утепление высотных объектов.</p>
+        <ul class="sc-specs">
+          <li><span class="spec-k">Высота подъёма</span><span class="spec-v">до 30 метров</span></li>
+          <li><span class="spec-k">Вылет стрелы</span><span class="spec-v">до 14 метров</span></li>
+          <li><span class="spec-k">Грузоподъёмность</span><span class="spec-v">до 300 кг</span></li>
+          <li><span class="spec-k">Подача</span><span class="spec-v">от 1 часа</span></li>
+        </ul>
+        <div class="sc-footer">
+          <div class="service-price">от 9 000 ₸/час</div>
+          <a href="https://wa.me/77075269446?text=Здравствуйте!%20Нужна%20автовышка." class="sc-btn" target="_blank">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-top"><span class="service-emoji">♻️</span></div>
+        <h3>Вывоз мусора</h3>
+        <p>Вывоз строительного и бытового мусора с объектов любого размера. Быстро, чисто, официально.</p>
+        <ul class="sc-specs">
+          <li><span class="spec-k">Тип мусора</span><span class="spec-v">строй / бытовой</span></li>
+          <li><span class="spec-k">Объём</span><span class="spec-v">от 1 до 20 м³</span></li>
+          <li><span class="spec-k">Контейнер</span><span class="spec-v">предоставляем</span></li>
+          <li><span class="spec-k">Выезд</span><span class="spec-v">от 1 часа</span></li>
+        </ul>
+        <div class="sc-footer">
+          <div class="service-price">от 7 000 ₸/час</div>
+          <a href="https://wa.me/77075269446?text=Здравствуйте!%20Нужен%20вывоз%20мусора." class="sc-btn" target="_blank">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-top"><span class="service-emoji">🚚</span></div>
+        <h3>ЗИЛ / Бортовой</h3>
+        <p>Грузовые перевозки по Алматы и области. Перевозка мебели, стройматериалов, оборудования.</p>
+        <ul class="sc-specs">
+          <li><span class="spec-k">Грузоподъёмность</span><span class="spec-v">до 5 тонн</span></li>
+          <li><span class="spec-k">Объём борта</span><span class="spec-v">до 20 м³</span></li>
+          <li><span class="spec-k">Тентованный</span><span class="spec-v">есть вариант</span></li>
+          <li><span class="spec-k">Подача</span><span class="spec-v">от 1 часа</span></li>
+        </ul>
+        <div class="sc-footer">
+          <div class="service-price">от 5 000 ₸/час</div>
+          <a href="https://wa.me/77075269446?text=Здравствуйте!%20Нужен%20ЗИЛ%20бортовой." class="sc-btn" target="_blank">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-top"><span class="service-emoji">🏠</span></div>
+        <h3>Фасадные работы</h3>
+        <p>Полный комплекс высотных работ на фасадах. Утепление, покраска, монтаж облицовки и рекламных конструкций.</p>
+        <ul class="sc-specs">
+          <li><span class="spec-k">Автовышка</span><span class="spec-v">включена</span></li>
+          <li><span class="spec-k">Высота</span><span class="spec-v">до 30 метров</span></li>
+          <li><span class="spec-k">Бригада</span><span class="spec-v">по запросу</span></li>
+          <li><span class="spec-k">Оценка</span><span class="spec-v">бесплатно</span></li>
+        </ul>
+        <div class="sc-footer">
+          <div class="service-price">по запросу</div>
+          <a href="https://wa.me/77075269446?text=Здравствуйте!%20Нужны%20фасадные%20работы." class="sc-btn" target="_blank">Узнать цену →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REACH / CONTACTS -->
+<section id="reach">
+  <div class="section-inner">
+    <div class="section-label">Связь с нами</div>
+    <h2 class="section-title">КАК НАС<br><span>НАЙТИ</span></h2>
+    <p class="section-desc">Выберите удобный способ — ответим быстро в любое время суток.</p>
+    <div class="reach-grid">
+
+      <a href="https://wa.me/77075269446?text=Здравствуйте!%20Хочу%20заказать%20спецтехнику." class="reach-card wa" target="_blank">
+        <div class="reach-icon">💬</div>
+        <div class="reach-name">WhatsApp</div>
+        <div class="reach-desc">Самый быстрый способ — пишите прямо сейчас. Отвечаем в течение 5 минут.</div>
+        <div class="reach-action">Написать сейчас →</div>
+      </a>
+
+      <a href="https://instagram.com/asmg.auto" class="reach-card inst" target="_blank">
+        <div class="reach-icon">📸</div>
+        <div class="reach-name">Instagram</div>
+        <div class="reach-desc">Следите за нашими работами и актуальными ценами в Instagram @asmg.auto</div>
+        <div class="reach-action">Перейти в профиль →</div>
+      </a>
+
+      <a href="tel:+77075269446" class="reach-card phone">
+        <div class="reach-icon">📞</div>
+        <div class="reach-name">+7 707 526 94 46</div>
+        <div class="reach-desc">Звоните напрямую — принимаем заявки по телефону круглосуточно.</div>
+        <div class="reach-action">Позвонить →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="why-item">
+          <span class="why-icon">⚡</span>
+          <div>
+            <h4>Молниеносная подача</h4>
+            <p>Приедем в течение 1 часа после заявки. Не заставляем ждать — это наш стандарт.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">💰</span>
+          <h4>Честные цены</h4>
+          <p>Прозрачное ценообразование без скрытых доплат. Цена фиксируется заранее.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">👨‍✈️</span>
+          <h4>Опытные водители</h4>
+          <p>Все операторы с опытом от 3 лет. Знают специфику работы в городе.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🕐</span>
+          <h4>Работаем 24/7</h4>
+          <p>Принимаем заявки круглосуточно. Готовы к срочным выездам в любое время.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">📋</span>
+          <h4>Официально</h4>
+          <p>Работаем по договору, закрывающие документы, безналичный расчёт.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">📍</span>
+          <h4>Весь Алматы</h4>
+          <p>Работаем по всему Алматы и области. Быстро доедем до вас.</p>
+        </div>
+      </div>
+      <div class="why-right">
+        <div class="section-label">Почему выбирают нас</div>
+        <h2>НАДЁЖНЫЙ<br>ПАРТНЁР<br><span>ДЛЯ БИЗНЕСА</span></h2>
+        <p>ASMG.AUTO — команда профессионалов, которая понимает: простой на объекте стоит денег. Поэтому мы всегда на связи и всегда вовремя.</p>
+        <ul class="why-list">
+          <li>Подача техники от 1 часа после звонка</li>
+          <li>Собственный парк — никаких посредников</li>
+          <li>Фиксированные цены без скрытых платежей</li>
+          <li>Работа с юрлицами по договору</li>
+          <li>Регулярное техническое обслуживание машин</li>
+        </ul>
+        <a href="https://wa.me/77075269446" class="btn-primary" target="_blank">💬 Получить консультацию</a>
       </div>
     </div>
-    <div class="test-card fade-in">
-      <div class="test-quote-mark">"</div>
-      <p class="test-text">Очень красивые комплекты! Помогли с выбором размера, всё подошло идеально. Доставка по городу прилетела за пару часов.</p>
-      <div class="test-author">
-        <div class="test-avatar">Д</div>
-        <div>
-          <div class="test-name">Динара</div>
-          <div class="test-city">Алматы</div>
-        </div>
-        <div class="test-stars">★★★★★</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-label">Процесс работы</div>
+    <h2 class="section-title">КАК МЫ<br><span>РАБОТАЕМ</span></h2>
+    <p class="section-desc">Всего 4 простых шага — от заявки до выполненной задачи.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4>Оставьте заявку</h4>
+        <p>Напишите в WhatsApp или позвоните. Опишите задачу — что нужно сделать.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4>Получите расчёт</h4>
+        <p>Мы быстро рассчитаем стоимость и подберём нужную технику.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4>Подача техники</h4>
+        <p>Машина приедет в согласованное время — обычно в течение 1 часа.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4>Работа выполнена</h4>
+        <p>Задача решена. Оплата по факту, документы по запросу.</p>
       </div>
     </div>
-    <div class="test-card fade-in">
-      <div class="test-quote-mark">"</div>
-      <p class="test-text">Живу в Жаркенте, заказала — привезли быстро. Бельё просто шикарное, муж доволен 😄 Всем рекомендую MEDIBOXX!</p>
-      <div class="test-author">
-        <div class="test-avatar">М</div>
-        <div>
-          <div class="test-name">Мадина</div>
-          <div class="test-city">Жаркент</div>
-        </div>
-        <div class="test-stars">★★★★★</div>
-      </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-inner">
+    <h2>НУЖНА ТЕХНИКА<br>ПРЯМО СЕЙЧАС?</h2>
+    <p>Пишите в WhatsApp — ответим в течение 5 минут и пришлём машину</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/77075269446" class="btn-white" target="_blank">💬 Написать в WhatsApp</a>
+      <a href="tel:+77075269446" class="btn-outline-white">📞 +7 707 526 94 46</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">MEDIBOXX</div>
-      <p class="footer-tagline">Нижнее бельё и пижамы для каждой женщины. Алматы, Жаркент и по всему Казахстану.</p>
-      <a href="https://instagram.com/mediboxx_" target="_blank" class="footer-ig">
-        📸 @mediboxx_
-      </a>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">ASMG<span>.</span>AUTO</a>
+    <p class="footer-copy">© 2025 ASMG.AUTO — Аренда спецтехники в Алматы</p>
+    <div class="footer-links">
+      <a href="#services">Техника</a>
+      <a href="#reach">Контакты</a>
+      <a href="https://instagram.com/asmg.auto" target="_blank">Instagram</a>
     </div>
-    <div>
-      <div class="footer-col-title">Каталог</div>
-      <ul class="footer-links">
-        <li><a href="#">Нижнее бельё</a></li>
-        <li><a href="#">Пижамы</a></li>
-        <li><a href="#">Купальники</a></li>
-        <li><a href="#">Духи и феромоны</a></li>
-        <li><a href="#">Новинки</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Информация</div>
-      <ul class="footer-links">
-        <li><a href="#">О нас</a></li>
-        <li><a href="#">Доставка и оплата</a></li>
-        <li><a href="#">Возврат</a></li>
-        <li><a href="#">Размерная сетка</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Связь</div>
-      <ul class="footer-links">
-        <li><a href="https://wa.me/message/O7UFR4NY3BQEI1" target="_blank">WhatsApp</a></li>
-        <li><a href="https://instagram.com/mediboxx_" target="_blank">Instagram</a></li>
-        <li><a href="#">Алматы</a></li>
-        <li><a href="#">Жаркент</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2024 MEDIBOXX. Все права защищены.</div>
-    <div class="footer-city">Алматы ✦ Жаркент ✦ Казахстан</div>
   </div>
 </footer>
 
+<a href="https://wa.me/77075269446" class="wa-float" target="_blank" title="Написать в WhatsApp">💬</a>
+
 <script>
+// Splash screen
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const splash = document.getElementById('splash');
+    splash.classList.add('hide');
+    setTimeout(() => { splash.style.display = 'none'; }, 800);
+  }, 2400);
+});
+
+// Hamburger
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('mobileNav');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+function closeNav() { nav.classList.remove('open'); }
+
+// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 100);
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.service-card, .why-item, .step-card, .reach-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
 </script>
 </body>
 </html>
